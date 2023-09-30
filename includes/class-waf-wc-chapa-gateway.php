@@ -406,6 +406,7 @@ class WAF_WC_CHAPA_Gateway extends WC_Payment_Gateway
                 <script language="Javascript">
                     window.onload = function() {
                         document.forms['waf_chapa_payment_form'].submit();
+                        
                     }
                 </script>
             </head>
@@ -415,7 +416,7 @@ class WAF_WC_CHAPA_Gateway extends WC_Payment_Gateway
                 </div>
                 <h3>We are redirecting you to Chapa, please wait ...</h3>
                 <form id="waf_chapa_payment_form" name="waf_chapa_payment_form" method="POST" action="https://api.chapa.co/v1/woocommerce">
-                    <input type="hidden" name="secret_key" value="<?php esc_attr_e($this->secret_key);  ?>" />
+                    <input type="hidden" name="secret_key" value="<?php esc_attr_e($this->secret_key); ?>" />
                     <input type="hidden" name="callback_url" value="<?php echo esc_url($callback_url);  ?>" />
                     <input type="hidden" name="return_url" value="<?php echo esc_url($callback_url);  ?>" />
                     <input type="hidden" name="tx_ref" value="<?php esc_attr_e($tx_ref);  ?>" />
@@ -423,11 +424,11 @@ class WAF_WC_CHAPA_Gateway extends WC_Payment_Gateway
                     <input type="hidden" name="email" value="<?php esc_attr_e($email); ?>" />
                     <input type="hidden" name="first_name" value="<?php esc_attr_e($first_name); ?>" />
                     <input type="hidden" name="last_name" value="<?php esc_attr_e($last_name); ?>" />
-                    <input type="hidden" name="title" value="<?php esc_attr_e($title); ?>" />
-                    <input type="hidden" name="description" value="<?php esc_attr_e($title); ?>" />
+                    <input type="hidden" name="title" value="<?php esc_attr_e('chapa'); ?>" />
+                    <input type="hidden" name="description" value="<?php esc_attr_e($description); ?>" />
                     <input type="hidden" name="currency" value="<?php esc_attr_e($currency); ?>" />
                     <input type="submit" value="submit" style="display: none" />
-                </form>
+                </form> 
             </body>
 
             </html>
